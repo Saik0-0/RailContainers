@@ -1,4 +1,5 @@
 import pyodbc
+import numpy as np
 
 SERVER = 'MSI\\SQLEXPRESS'
 DATABASE = 'TZ'
@@ -91,6 +92,15 @@ ID
 containers_on_platforms_tables = 'SELECT * FROM dbo.upTablesSPR'
 cursor.execute(containers_on_platforms_tables)
 containers_on_platforms_tables_array = cursor.fetchall()
+
+#   Создаём сокращенное множество типов платформ P(т.е. уникальные строки без учёта SessionID и carNumber)
+P = np.delete(np.array(platforms_array), (0, 1), 1)
+P, count_P = np.unique(P, axis=0, return_counts=True)
+dupl_P = dict(zip((tuple(map(str, row)) for row in P), map(int, count_P)))
+#   P - множество типов платформ
+#   dupl_P - словарь {тип платформы: количество таких платформ}
+
+#   Создаём множество допустимых расположений контейнеров для каждого типа платформы
 
 
 cursor.close()
