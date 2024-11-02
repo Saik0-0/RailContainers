@@ -14,14 +14,14 @@ cursor = connection.cursor()
 Значения по столбцам:   
 SessionID   
 contNumber   
-Size    
-CargoWeight    
-TareWeight  
-Status  
-Priority    
-Batch   
+Size    длина
+CargoWeight    вес груза(макс)
+TareWeight  вес контейнера
+Status  состояние
+Priority    приоритет
+Batch   партия
 Stack   
-DangerClass
+DangerClass класс опасности
 """
 containers = "SELECT * FROM dbo.upContainersVX"
 cursor.execute(containers)
@@ -100,8 +100,26 @@ dupl_P = dict(zip((tuple(map(str, row)) for row in P), map(int, count_P)))
 #   P - множество типов платформ
 #   dupl_P - словарь {тип платформы: количество таких платформ}
 
-#   Создаём множество допустимых расположений контейнеров для каждого типа платформы
+#   Создаём множество всех контейнеров C
+C = np.delete(np.array(containers_array), (0, 8), 1)
+C = np.unique(C, axis=0)
 
+#   Создаём множество контейнеров, сгруппированных по приоритету отправки
+O = np.unique(C[:, 5])  # мн-во приоритетов контейнеров
+C_o = []
+for o in O:
+    C_o_temp = C[C[:, 5] == o]
+    C_o.append(C_o_temp.tolist())
+
+#   Создаём множество контейнеров, сгруппированных по партии
+B = np.unique(C[:, 6])  # мн-во партий контейнеров
+C_b = []
+for b in B:
+    C_b_temp = C[C[:, 6] == b]
+    C_b.append(C_b_temp.tolist())
+
+D = set(map(str, np.concatenate([np.array(item.split(',')) if ',' in item else np.array([item])
+                                 for item in np.unique(C[:, -1])])))   # мн-во классов опасности грузов
 
 cursor.close()
 connection.close()
