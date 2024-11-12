@@ -128,15 +128,43 @@ def sort_SPR(table):
     return final_result
 
 
+"""Функция разделения входных таблиц контейнеров и платформ на сессии
+Структура:
+{sessionID_1: [[plats], [conts]], sessionID_2: [[plats], [conts]], ...}"""
+
+
+def generate_P_and_duplP(platforms_table):
+    plats, count_platforms = np.unique(platforms_table, axis=0, return_counts=True)
+    dupl_platforms = dict(zip((tuple(np.array(row, dtype=object)) for row in plats), map(int, count_platforms)))
+    return plats.tolist(), dupl_platforms
+
+
+def P_and_C_test(platforms_table, cont_table):
+    platforms_table = np.delete(np.array(platforms_table, dtype=object), 1, 1)
+    cont_table = np.array(cont_table, dtype=object)
+    sessions = np.unique(platforms_table[:, 0])
+    result = {}
+    for session in sessions:
+        if session not in result.keys():
+            result[session] = [[[], []], []]
+        result[session][0][0].extend((platforms_table[platforms_table[:, 0] == session]).tolist())
+        result[session][0][0], result[session][0][1] = generate_P_and_duplP(result[session][0][0])
+        result[session][1].extend((cont_table[cont_table[:, 0] == session]).tolist())
+
+    return result
+
+
+print(P_and_C_test(platforms_array, containers_array))
+
 #   Создаём сокращенное множество типов платформ P(т.е. уникальные строки без учёта SessionID и carNumber)
-P = np.delete(np.array(platforms_array), (0, 1), 1)
-P, count_P = np.unique(P, axis=0, return_counts=True)
-dupl_P = dict(zip((tuple(map(str, row)) for row in P), map(int, count_P)))
+# def create_P_and_C(sessionID_platf, sessionID_cont):
+# P, count_P = np.unique(P, axis=0, return_counts=True)
+# dupl_P = dict(zip((tuple(map(str, row)) for row in P), map(int, count_P)))
 #   P - множество типов платформ
 #   dupl_P - словарь {тип платформы: количество таких платформ}
 
 #   Создаём множество всех контейнеров C
-C = np.delete(np.array(containers_array), (0, 8), 1)
+C = np.delete(np.array(containers_array), 8, 1)
 C = np.unique(C, axis=0)
 
 #   Создаём множество контейнеров, сгруппированных по приоритету отправки
@@ -165,7 +193,7 @@ for platform in platforms_rules_1:
     cont_rules_1.append((np.array(containers_rules_array)[np.array(containers_rules_array)[:, 1] == platform]).tolist())
 
 containersSPR = sort_SPR(cont_rules_1)
-print(containersSPR)
+# print(containersSPR)
 
 
 # """Работаем с таблицей RulesSPR"""
