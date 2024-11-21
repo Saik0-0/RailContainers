@@ -106,21 +106,22 @@ containers_on_platforms_tables_array = cursor.fetchall()
 
 def containers_SPR_sort(table):
     result = defaultdict(lambda: defaultdict(list))
-    data_array = np.array(table, dtype=object)
-    for sublist in data_array:
-        for item in sublist:
-            second_key = item[1]  # Вводим второй элемент - модель - как ключ
-            first_elem = item[0]  # Первый элемент - код - для группировки
-            result[second_key][first_elem].append(item)  # Добавляем подсписки в структуру
+    table = np.array(table, dtype=object)
+    for sublist in table:
+        for row in sublist:
+            model = row[1]
+            code = row[0]
+            row[2] = list(row[2].split(','))
+            result[model][code].append(row)
 
     final_result = defaultdict(dict)
 
-    for second_key, groups in result.items():
+    for model, groups in result.items():
         for first_elem, items in groups.items():
             count_key = len(items)  # количество подсписков для данного кода
-            if count_key not in final_result[second_key]:
-                final_result[second_key][count_key] = []  # создаём новый список для этого количества дубликатов
-            final_result[second_key][count_key].extend(items)  # добавляем строки
+            if count_key not in final_result[model]:
+                final_result[model][count_key] = []  # создаём новый список для этого количества дубликатов
+            final_result[model][count_key].extend(items)  # добавляем строки
 
     # Преобразуем в обычный словарь для дальнейшей работы
     final_result = {k: dict(v) for k, v in final_result.items()}
@@ -128,9 +129,6 @@ def containers_SPR_sort(table):
         final_result[key] = {k: final_result[key][k] for k in sorted(final_result[key])}
 
     return final_result
-
-
-"""{plat: {code: [...], code: [...]}, plat: {code: [...], code: [...]}, ...}"""
 
 
 def rules_SPR_sort(table):
@@ -242,7 +240,7 @@ cont_rules_1 = []
 for platform in platforms_rules_1:
     cont_rules_1.append((np.array(containers_rules_array)[np.array(containers_rules_array)[:, 1] == platform]).tolist())
 
-# containersSPR = sort_SPR(cont_rules_1)
+# containersSPR = containers_SPR_sort(cont_rules_1)
 # with open('containersSPR.json', 'w', encoding='utf-8') as file:
 #     json.dump(containersSPR, file, ensure_ascii=False, indent=4)
 
@@ -254,9 +252,9 @@ rules_2 = []
 for code in codes:
     rules_2.append(rules[rules[:, 1] == code].tolist())
 
-rulesSPR = rules_SPR_sort(rules_2)
-with open('rulesSPR.json', 'w', encoding='utf-8') as file:
-    json.dump(rulesSPR, file, ensure_ascii=False, indent=4)
+# rulesSPR = rules_SPR_sort(rules_2)
+# with open('rulesSPR.json', 'w', encoding='utf-8') as file:
+#     json.dump(rulesSPR, file, ensure_ascii=False, indent=4)
 
 """Работаем с таблицей TablesSPR"""
 tables = np.array(containers_on_platforms_tables_array)
