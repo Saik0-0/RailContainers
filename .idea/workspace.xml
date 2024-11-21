@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23d5a035-f43d-48fd-b187-ddd7efc29824" name="Changes" comment="make func for P, duplP, C">
-      <change afterPath="$PROJECT_DIR$/SC.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/containersSPR.json" afterDir="false" />
+    <list default="true" id="23d5a035-f43d-48fd-b187-ddd7efc29824" name="Changes" comment="make func for P, duplP, SC(combinations length 2 and 3) for each platform, work with containersSPR">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1.py" beforeDir="false" afterPath="$PROJECT_DIR$/1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SC.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/SC.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +99,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731409907622</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="make func for P, duplP, SC(combinations length 2 and 3) for each platform, work with containersSPR">
+      <option name="closed" value="true" />
+      <created>1731747632847</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1731747632847</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -109,6 +116,7 @@
     <MESSAGE value="make C, C_o, C_b, O, B, D" />
     <MESSAGE value="make containersSPR" />
     <MESSAGE value="make func for P, duplP, C" />
-    <option name="LAST_COMMIT_MESSAGE" value="make func for P, duplP, C" />
+    <MESSAGE value="make func for P, duplP, SC(combinations length 2 and 3) for each platform, work with containersSPR" />
+    <option name="LAST_COMMIT_MESSAGE" value="make func for P, duplP, SC(combinations length 2 and 3) for each platform, work with containersSPR" />
   </component>
 </project>
