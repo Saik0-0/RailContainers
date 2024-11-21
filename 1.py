@@ -146,6 +146,31 @@ def rules_SPR_sort(table):
     return result
 
 
+def tables_SPR_sort(table):
+    result = defaultdict(lambda: defaultdict(list))
+    table = np.array(table, dtype=object)
+    for sublit in table:
+        for row in sublit:
+            model = row[1]
+            code = int(row[0])
+            row[3] = tuple(map(int, row[3].split(',')))
+            row[4] = float(row[4].replace(',', '.')) * 1000
+            row[5] = float(row[5].replace(',', '.')) * 1000
+            result[model][code].append(row[2:])
+
+    final_result = defaultdict(lambda: defaultdict(list))
+
+    for model, groups in result.items():
+        for code, rows in groups.items():
+            temp_group = defaultdict(list)
+            for row in rows:
+                temp_group[tuple(row[:2])].append(row)
+            final_result[model][code] = np.array(list(temp_group.values()), dtype=object).transpose(1, 0, 2).tolist()
+
+    final_result = {k: dict(v) for k, v in final_result.items()}
+    return final_result
+
+
 def generate_combinations_and_permutations_of_cont(cont_table):
     cont_combinations = []
 
@@ -261,7 +286,11 @@ tables = np.array(containers_on_platforms_tables_array)
 codes = np.unique(tables[:, 1])
 tables_new = []
 for code in codes:
-    tables_new.append(tables[tables[:, 0] == code].tolist())
+    tables_new.append(tables[tables[:, 1] == code].tolist())
+
+# tablesSPR = tables_SPR_sort(tables_new)
+# with open('tablesSPR.json', 'w', encoding='utf-8') as file:
+#     json.dump(tablesSPR, file, ensure_ascii=False, indent=4)
 
 
 cursor.close()
