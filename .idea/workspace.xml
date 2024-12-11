@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23d5a035-f43d-48fd-b187-ddd7efc29824" name="Changes" comment="-">
-      <change afterPath="$PROJECT_DIR$/interface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="23d5a035-f43d-48fd-b187-ddd7efc29824" name="Changes" comment="interface without oop" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -155,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733853755308</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="interface without oop">
+      <option name="closed" value="true" />
+      <created>1733909871524</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1733909871524</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,6 +187,7 @@
     <MESSAGE value="make func for tablesSPR, save in json file" />
     <MESSAGE value="make func for sorting all SPR tables(first variant)&#10;still problem with SC" />
     <MESSAGE value="-" />
-    <option name="LAST_COMMIT_MESSAGE" value="-" />
+    <MESSAGE value="interface without oop" />
+    <option name="LAST_COMMIT_MESSAGE" value="interface without oop" />
   </component>
 </project>
