@@ -5,9 +5,11 @@ from checking import CheckingRules
 
 
 class CombinationGenerator:
-    @staticmethod
-    def create():
-        importer = DataImporter()
+    def __init__(self, file_name):
+        self.file_name = file_name
+
+    def create(self):
+        importer = DataImporter(self.file_name)
         containers_vx = importer.import_table('SELECT * FROM dbo.upContainersVX')
         platforms_vx = importer.import_table('SELECT * FROM dbo.upPlatformsVX')
         containers_spr = importer.import_table('SELECT * FROM dbo.upContainersSPR')
@@ -28,7 +30,7 @@ class CombinationGenerator:
 
         return result
 
-
-if __name__ == "__main__":
-    generator = CombinationGenerator()
-    generator.create()
+#
+# if __name__ == "__main__":
+#     generator = CombinationGenerator()
+#     generator.create()

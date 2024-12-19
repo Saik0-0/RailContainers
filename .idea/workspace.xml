@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23d5a035-f43d-48fd-b187-ddd7efc29824" name="Changes" comment="interface without oop" />
+    <list default="true" id="23d5a035-f43d-48fd-b187-ddd7efc29824" name="Changes" comment="-">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.py" beforeDir="false" afterPath="$PROJECT_DIR$/1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checking.py" beforeDir="false" afterPath="$PROJECT_DIR$/checking.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/combination_creator.py" beforeDir="false" afterPath="$PROJECT_DIR$/combination_creator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/combination_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/combination_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/interface.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +39,8 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Python.1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.checking.executor&quot;: &quot;Run&quot;,
+    &quot;Python.combination_generator.executor&quot;: &quot;Run&quot;,
     &quot;Python.test.executor&quot;: &quot;Run&quot;,
     &quot;Python.v.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
@@ -40,6 +49,35 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/alexa/Downloads/Telegram Desktop/src&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="combination_generator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="RailContainers" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/combination_generator.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.combination_generator" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -160,7 +198,31 @@
       <option name="project" value="LOCAL" />
       <updated>1733909871524</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="add CombinationCreator">
+      <option name="closed" value="true" />
+      <created>1733914588103</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1733914588103</updated>
+    </task>
+    <task id="LOCAL-00015" summary="update oop">
+      <option name="closed" value="true" />
+      <created>1733985376798</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1733985376798</updated>
+    </task>
+    <task id="LOCAL-00016" summary="-">
+      <option name="closed" value="true" />
+      <created>1734047316111</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1734047316111</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -186,8 +248,10 @@
     <MESSAGE value="redact func for containersSPR" />
     <MESSAGE value="make func for tablesSPR, save in json file" />
     <MESSAGE value="make func for sorting all SPR tables(first variant)&#10;still problem with SC" />
-    <MESSAGE value="-" />
     <MESSAGE value="interface without oop" />
-    <option name="LAST_COMMIT_MESSAGE" value="interface without oop" />
+    <MESSAGE value="add CombinationCreator" />
+    <MESSAGE value="update oop" />
+    <MESSAGE value="-" />
+    <option name="LAST_COMMIT_MESSAGE" value="-" />
   </component>
 </project>

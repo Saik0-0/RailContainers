@@ -3,10 +3,9 @@ import pyodbc
 
 
 class DataImporter:
-    def __init__(self):
+    def __init__(self, file_name):
         SERVER = 'MSI\\SQLEXPRESS'
-        DATABASE = 'TZ'
-
+        DATABASE = file_name
         connection_string = (
             f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={SERVER};DATABASE={DATABASE};Trusted_Connection'
             f'=yes;')

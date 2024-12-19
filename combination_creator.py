@@ -4,18 +4,17 @@ import numpy as np
 
 class CombinationCreator:
     def generate_unique_platforms_with_containers(self, platforms_table, cont_table):
+
         platforms_table = np.delete(np.array(platforms_table, dtype=object), 1, 1)
         cont_table = np.array(cont_table, dtype=object)
         sessions = np.unique(platforms_table[:, 0])
         result = {}
-
         for session in sessions:
             if session not in result.keys():
-                result[session] = [[[], {}], []]
-
-            result[session][0][0].extend((platforms_table[platforms_table[:, 0] == session]).tolist())
-            result[session][0][0], result[session][0][1] = self.generate_unique_platforms(result[session][0][0])
+                result[session] = [[], []]
+            result[session][0].extend((platforms_table[platforms_table[:, 0] == session]).tolist())
             result[session][1].extend((cont_table[cont_table[:, 0] == session]).tolist())
+
             result[session][1] = self.generate_combinations_and_permutations_of_cont(result[session][1])
 
         return result
@@ -29,8 +28,3 @@ class CombinationCreator:
                     cont_combinations.extend(itertools.permutations(comb))
 
         return cont_combinations
-
-    def generate_unique_platforms(self, platforms_table):
-        plats, count_platforms = np.unique(platforms_table, axis=0, return_counts=True)
-        dupl_platforms = dict(zip((tuple(np.array(row, dtype=str)) for row in plats), map(int, count_platforms)))
-        return plats.tolist(), dupl_platforms
