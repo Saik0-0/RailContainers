@@ -1,3 +1,4 @@
+from export_data import DataExporter
 from import_data import DataImporter
 from modify_data import DataModifier
 from combination_creator import CombinationCreator
@@ -5,8 +6,9 @@ from checking import CheckingRules
 
 
 class CombinationGenerator:
-    def __init__(self, file_name):
+    def __init__(self, file_name, sessionID):
         self.file_name = file_name
+        self.sessionID = sessionID
 
     def create(self):
         importer = DataImporter(self.file_name)
@@ -23,14 +25,12 @@ class CombinationGenerator:
 
         combination_creator = CombinationCreator()
         platforms_and_containers = combination_creator.generate_unique_platforms_with_containers(platforms_vx,
-                                                                                                 containers_vx)
-        checker = CheckingRules()
+                                                                                                 containers_vx, self.sessionID)
+        checker = CheckingRules(self.sessionID)
         result = checker.check_rules(platforms_and_containers, transformed_containers_spr, transformed_rules_spr,
                                      transformed_tables_spr)
 
-        return result
+        de = DataExporter()
+        de.export_result(self.sessionID, result)
 
-#
-# if __name__ == "__main__":
-#     generator = CombinationGenerator()
-#     generator.create()
+        return result
