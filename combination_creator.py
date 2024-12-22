@@ -3,19 +3,20 @@ import numpy as np
 
 
 class CombinationCreator:
-    def generate_unique_platforms_with_containers(self, platforms_table, cont_table, sessionID):
+    def generate_unique_platforms_with_containers(self, platforms_table, cont_table, sessionID: int):
         platforms_table = np.delete(np.array(platforms_table, dtype=object), 1, 1)
         cont_table = np.array(cont_table, dtype=object)
         sessions = np.unique(platforms_table[:, 0])
-        result = {}
-        for session in sessions:
-            if session == sessionID:
-                if session not in result.keys():
-                    result[session] = [[], []]
-                result[session][0].extend((platforms_table[platforms_table[:, 0] == session]).tolist())
-                result[session][1].extend((cont_table[cont_table[:, 0] == session]).tolist())
+        if sessionID not in sessions:
+            return None
 
-                result[session][1] = self.generate_combinations_and_permutations_of_cont(result[session][1])
+        result = {}
+        if sessionID not in result.keys():
+            result[sessionID] = [[], []]
+        result[sessionID][0].extend((platforms_table[platforms_table[:, 0] == sessionID]).tolist())
+        result[sessionID][1].extend((cont_table[cont_table[:, 0] == sessionID]).tolist())
+
+        result[sessionID][1] = self.generate_combinations_and_permutations_of_cont(result[sessionID][1])
 
         return result
 

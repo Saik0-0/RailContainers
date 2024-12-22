@@ -26,6 +26,9 @@ class CombinationGenerator:
         combination_creator = CombinationCreator()
         platforms_and_containers = combination_creator.generate_unique_platforms_with_containers(platforms_vx,
                                                                                                  containers_vx, self.sessionID)
+        if platforms_and_containers is None:
+            return None
+
         checker = CheckingRules(self.sessionID)
         result = checker.check_rules(platforms_and_containers, transformed_containers_spr, transformed_rules_spr,
                                      transformed_tables_spr)
