@@ -3,16 +3,13 @@ import numpy as np
 
 
 class CombinationCreator:
-    def generate_platforms_with_containers(self, platforms_table, cont_table, sessionID: int):
+    def generate_platforms_with_containers(self, platforms_table: list, cont_table: list, sessionID: int):
         platforms_table = np.delete(np.array(platforms_table, dtype=object), 1, 1)
-        cont_table = np.array(cont_table, dtype=object)
         sessions = np.unique(platforms_table[:, 0])
         if sessionID not in sessions:
             return None
 
-        result = {}
-        if sessionID not in result.keys():
-            result[sessionID] = [[], []]
+        result = {sessionID: [[], []]}
         result[sessionID][0].extend((platforms_table[platforms_table[:, 0] == sessionID]).tolist())
         result[sessionID][1].extend((cont_table[cont_table[:, 0] == sessionID]).tolist())
 
@@ -21,7 +18,7 @@ class CombinationCreator:
         return result
 
     @staticmethod
-    def generate_combinations_and_permutations(cont_table):
+    def generate_combinations_and_permutations(cont_table: list):
         cont_combinations = []
 
         for i in range(1, 4):

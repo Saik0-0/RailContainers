@@ -23,15 +23,14 @@ class DataModifier:
 
         for model, groups in result.items():
             for first_elem, items in groups.items():
-                count_key = len(items)  # количество подсписков для данного кода
+                count_key = len(items)
                 if count_key not in final_result[model]:
-                    final_result[model][count_key] = []  # создаём новый список для этого количества дубликатов
+                    final_result[model][count_key] = []
                 if len(items) == 1:
-                    final_result[model][count_key].extend(items)  # добавляем строки
+                    final_result[model][count_key].extend(items)
                 else:
-                    final_result[model][count_key].append(items)  # добавляем строки
+                    final_result[model][count_key].append(items)
 
-        # Преобразуем в обычный словарь для дальнейшей работы
         final_result = {k: dict(v) for k, v in final_result.items()}
         for key in final_result:
             final_result[key] = {k: final_result[key][k] for k in sorted(final_result[key])}

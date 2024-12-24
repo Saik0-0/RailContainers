@@ -33,7 +33,7 @@ class CombinationGenerator:
         result = checker.check_rules(platforms_and_containers, transformed_containers_spr, transformed_rules_spr,
                                      transformed_tables_spr)
 
-        de = DataExporter()
-        de.export_result(self.sessionID, result)
+        exporter = DataExporter()
+        exporter.export_result(self.sessionID, result)
 
         return result
