@@ -10,7 +10,9 @@
       <change beforePath="$PROJECT_DIR$/checking.py" beforeDir="false" afterPath="$PROJECT_DIR$/checking.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/combination_creator.py" beforeDir="false" afterPath="$PROJECT_DIR$/combination_creator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/combination_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/combination_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/export_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/export_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/interface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modify_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/modify_data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,19 +38,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.checking.executor&quot;: &quot;Run&quot;,
-    &quot;Python.combination_generator.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.v.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/alexa/Downloads/Telegram Desktop/src&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.1.executor": "Run",
+    "Python.checking.executor": "Run",
+    "Python.combination_generator.executor": "Run",
+    "Python.test.executor": "Run",
+    "Python.v.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/alexa/Downloads/Telegram Desktop/streamlit_test",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="combination_generator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="RailContainers" />
@@ -222,7 +225,39 @@
       <option name="project" value="LOCAL" />
       <updated>1734047316111</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="-">
+      <option name="closed" value="true" />
+      <created>1734619728332</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1734619728332</updated>
+    </task>
+    <task id="LOCAL-00018" summary="-">
+      <option name="closed" value="true" />
+      <created>1734685829446</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1734685829446</updated>
+    </task>
+    <task id="LOCAL-00019" summary="-">
+      <option name="closed" value="true" />
+      <created>1734824295487</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1734824295487</updated>
+    </task>
+    <task id="LOCAL-00020" summary="-">
+      <option name="closed" value="true" />
+      <created>1734831992450</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1734831992450</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

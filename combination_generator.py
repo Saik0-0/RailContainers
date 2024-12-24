@@ -2,7 +2,7 @@ from export_data import DataExporter
 from import_data import DataImporter
 from modify_data import DataModifier
 from combination_creator import CombinationCreator
-from checking import CheckingRules
+from checking import RulesChecker
 
 
 class CombinationGenerator:
@@ -10,7 +10,7 @@ class CombinationGenerator:
         self.file_name = file_name
         self.sessionID = sessionID
 
-    def create(self):
+    def process_session(self):
         importer = DataImporter(self.file_name)
         containers_vx = importer.import_table('SELECT * FROM dbo.upContainersVX')
         platforms_vx = importer.import_table('SELECT * FROM dbo.upPlatformsVX')
@@ -24,12 +24,12 @@ class CombinationGenerator:
         transformed_tables_spr = modifier.transform_tables_spr(tables_spr)
 
         combination_creator = CombinationCreator()
-        platforms_and_containers = combination_creator.generate_unique_platforms_with_containers(platforms_vx,
-                                                                                                 containers_vx, self.sessionID)
+        platforms_and_containers = combination_creator.generate_platforms_with_containers(platforms_vx, containers_vx,
+                                                                                          self.sessionID)
         if platforms_and_containers is None:
             return None
 
-        checker = CheckingRules(self.sessionID)
+        checker = RulesChecker(self.sessionID)
         result = checker.check_rules(platforms_and_containers, transformed_containers_spr, transformed_rules_spr,
                                      transformed_tables_spr)
 

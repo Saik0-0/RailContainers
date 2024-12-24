@@ -1,6 +1,5 @@
 import json
 import copy
-import yaml
 import pyodbc
 import numpy as np
 from collections import defaultdict

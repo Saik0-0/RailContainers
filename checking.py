@@ -3,7 +3,7 @@ import itertools
 import numpy as np
 
 
-class CheckingRules:
+class RulesChecker:
     def __init__(self, sessionID):
         self.sessionID = sessionID
 

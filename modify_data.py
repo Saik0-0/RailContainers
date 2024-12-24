@@ -3,7 +3,8 @@ import numpy as np
 
 
 class DataModifier:
-    def transform_containers_spr(self, containers_rules: list):
+    @staticmethod
+    def transform_containers_spr(containers_rules: list):
         platforms = np.unique(np.array(containers_rules)[:, 1])
         table = []
         for platform in platforms:
@@ -37,7 +38,8 @@ class DataModifier:
 
         return final_result
 
-    def transform_rules_spr(self, rules_for_containers: list):
+    @staticmethod
+    def transform_rules_spr(rules_for_containers: list):
         platforms = np.unique(np.array(rules_for_containers)[:, 1])
         table = []
         for platform in platforms:
@@ -56,7 +58,8 @@ class DataModifier:
         result = {k: dict(v) for k, v in result.items()}
         return result
 
-    def transform_tables_spr(self, condition_rules: list):
+    @staticmethod
+    def transform_tables_spr(condition_rules: list):
         platforms = np.unique(np.array(condition_rules)[:, 1])
         table = []
         for platform in platforms:
